@@ -1,0 +1,91 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card">
+                <div class="card-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <!-- <div class="card-body" *ngFor="let items of productList">
+                                        <div class="row">
+                                            <label>Flate_No : {{items.id}}</label>
+                                        </div>
+                                        <div class="row">
+                                            <label>Two Vehicle : </label>
+                                        </div>
+                                        <div class="row">
+                                            <label>Four Vehicle : </label>
+                                        </div>
+                                        
+                                    </div> -->
+                                <mat-form-field style="margin-top: 13px;">
+                                    <mat-label>Select Flate_No:</mat-label>
+                                    <mat-select [(ngModel)]="formData.flatenNo" name="flate_no">
+                                        <mat-option *ngFor="let option of options" [value]="option.flatenNo">
+                                            {{ option.flatenNo }}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-4">
+                                <mat-form-field appearance="fill">
+                                    <input matInput placeholder="Select Two Wheeler Vehicle_Number" [(ngModel)]="formData.two_wheeler" name="two_wheeler">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-4">
+                                <mat-form-field appearance="fill">
+                                    <input matInput placeholder="Select Four Wheeler Vehicle_Number" [(ngModel)]="formData.four_wheeler" name="four_wheeler">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <mat-form-field appearance="fill">
+                                    <input matInput placeholder="Phone_Number" [(ngModel)]="formData.phone_number" name="phone_number">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-4">
+                                <button mat-raised-button class="btn btn-danger pull-left"
+                                    (click)="AddVehicledata()">Add</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label style="font-weight: bold;color: red;">Note : Only Two vehicle allowed </label>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-primary" style="background-color: rgb(238, 238, 236);">
+                                <th>
+                                    Flate_No
+                                </th>
+                                <th>
+                                    Two Wheeler Vehicle_Number
+                                </th>
+                                <th>
+                                    Four Wheeler Vehicle_Number
+                                </th>
+                                <th>
+                                    Phone_Number
+                                </th>
+                            </thead>
+                            <tbody>
+                                <tr
+                                    *ngFor="let items of vehicle |  paginate: { itemsPerPage: 4, currentPage: currentPage}">
+                                    <!-- |  paginate: { itemsPerPage: 4, currentPage: currentPage} -->
+                                    <td>{{items.flatenNo}}</td>
+                                    <td>{{items.two_wheeler}}</td>
+                                    <td>{{items.four_wheeler}}</td>
+                                    <td>{{items.phone_number}}</td>
+                                </tr>
+                                <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

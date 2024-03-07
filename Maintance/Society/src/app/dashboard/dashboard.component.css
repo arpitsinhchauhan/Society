@@ -1,0 +1,22 @@
+.logo-container {
+  width: 100%;
+}
+
+
+.sidenav-list span {
+  padding-left: 8px;
+}
+
+.sidenav-list {
+  width: 15%;
+}
+
+.example-sidenav {
+  /* background-color: aquamarine; */
+  width: 200px;
+  height: 570px;
+}
+
+.example-sidenav :hover{
+  background-color: antiquewhite;
+}

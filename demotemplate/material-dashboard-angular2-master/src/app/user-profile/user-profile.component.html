@@ -1,0 +1,190 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="card">
+        <div class="card-body">
+          <form>
+            <div class="row">
+              <div class="col-md-3">
+                <mat-form-field>
+                  <!-- <input matInput placeholder="Username" type="text"> -->
+                  <input matInput placeholder="Username" [(ngModel)]="enteredUsername" name="enteredUsername"
+                    type="text">
+                </mat-form-field>
+              </div>
+
+              <div class="col-md-3">
+                <mat-form-field class="example-full-width">
+                  <!-- <input matInput placeholder="Email" type="text"> -->
+                  <input matInput placeholder="Email" [(ngModel)]="enteredEmail" name="enteredEmail" type="text">
+                </mat-form-field>
+              </div>
+
+              <div class="col-md-3">
+                <mat-form-field class="example-full-width">
+                  <!-- <input matInput placeholder="Flate_No" type="text"> -->
+                  <input matInput placeholder="Flate_No" [(ngModel)]="enteredFlatNo" name="enteredFlatNo" type="text">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field style="width: 80%;" class="select-input-field">
+                  <mat-select [(value)]="selected" placeholder="Type">
+                    <mat-option [value]="">None</mat-option>
+                    <mat-option *ngFor="let inspectionType of inspectionTypes"
+                      [value]="inspectionType">{{inspectionType.description}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-md-2" *ngIf="this.selected!= null">
+                <h2 style="margin-left: -81px;">Set value: {{this.selected.inspection_type_id}}</h2>
+              </div>
+
+              <div class="col-md-3">
+                <button mat-raised-button type="submit" class="btn btn-danger pull-right"
+                  (click)="toggleCard()">Pay</button>
+              </div>
+            </div>
+            <!-- <div class="col-md-2" ngIf="inspectionType != null">
+              <h2 style="margin-left: -81px;">Set value: {{this.selected}}</h2>
+            </div> -->
+            <div class="clearfix"></div>
+          </form>
+        </div>
+      </div>
+      <div class="container" *ngIf="showCard">
+        <div class="row" style="margin-top: 0px;">
+          <div class="col-12 mt-4">
+            <div class="card p-3">
+              <p class="mb-0 fw-bold h4">Payment Methods</p>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card p-3">
+              <div class="card-body border p-0">
+                <mat-accordion class="example-headers-align" multi>
+                  <!-- #enddocregion multi -->
+                  <mat-expansion-panel (click)="onPanelClick('Paypal')">
+                    <mat-expansion-panel-header>
+                      <div class="my-panel">
+                        <span class="fw-bold">Paypal</span>
+                      </div>
+                    </mat-expansion-panel-header>
+
+                    <div class="container">
+                      <div class="image-section">
+                        <img src="qr.png" alt="Your Image Description" style="width: 35%;">
+                      </div>
+                      <div class="details-section">
+                        <p class="h4 mb-0">Summary</p>
+                        <p class="mb-0"><span class="fw-bold">Product:</span><span class="c-green">:
+                            {{this.selected.description}}</span>
+                        </p>
+                        <p class="mb-0"><span class="fw-bold">Name:</span><span class="c-green">:
+                            {{enteredUsername}} :</span>
+                        </p>
+                        <p class="mb-0"><span class="fw-bold">Email:</span><span class="c-green">:
+                            {{enteredEmail}} :</span>
+                        </p>
+                        <p class="mb-0"><span class="fw-bold">Flate_No:</span><span class="c-green">:
+                            {{enteredFlatNo}} :</span>
+                        </p>
+                        <p class="mb-0">
+                          <span class="fw-bold">Total:</span>
+                          <span class="c-green">:${{this.selected.inspection_type_id}}</span>
+                        </p>
+                      </div>
+                    </div>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </div>
+              <br>
+              <mat-accordion class="example-headers-align" multi>
+                <!-- #enddocregion multi -->
+                <mat-expansion-panel (click)="onPanelClick('Credit Card')">
+                  <mat-expansion-panel-header>
+                    <div class="my-panel">
+                      <a>
+                        <span class="fw-bold">Credit Card</span>
+                      </a>
+                    </div>
+                  </mat-expansion-panel-header>
+
+                  <div class="Image">
+                    <div class="collapse show p-3 pt-0" id="collapseExample">
+                      <div class="row">
+                        <div class="col-lg-5 mb-lg-0 mb-3">
+                          <p class="h4 mb-0">Summary</p>
+                          <p class="mb-0"><span class="fw-bold">Product:</span><span class="c-green">:
+                              {{this.selected.description}}</span>
+                          </p>
+                          <p class="mb-0"><span class="fw-bold">Name:</span><span class="c-green">:
+                              {{enteredUsername}} :</span>
+                          </p>
+                          <p class="mb-0"><span class="fw-bold">Email:</span><span class="c-green">:
+                              {{enteredEmail}} :</span>
+                          </p>
+                          <p class="mb-0"><span class="fw-bold">Flate_No:</span><span class="c-green">:
+                              {{enteredFlatNo}} :</span>
+                          </p>
+                          <p class="mb-0">
+                            <span class="fw-bold">Total:</span>
+                            <span class="c-green">:${{this.selected.inspection_type_id}}</span>
+                          </p>
+                        </div>
+                        <div class="col-lg-7">
+                          <form action="" class="form">
+                            <div class="row">
+                              <div class="col-12">
+                                <div class="form__div">
+                                  <input type="text" class="form-control" placeholder=" ">
+                                  <label for="" class="form__label">Card Number</label>
+                                </div>
+                              </div>
+
+                              <div class="col-6">
+                                <div class="form__div">
+                                  <input type="text" class="form-control" placeholder=" ">
+                                  <label for="" class="form__label">MM / yy</label>
+                                </div>
+                              </div>
+
+                              <div class="col-6">
+                                <div class="form__div">
+                                  <input type="password" class="form-control" placeholder=" ">
+                                  <label for="" class="form__label">cvv code</label>
+                                </div>
+                              </div>
+                              <div class="col-12">
+                                <div class="form__div">
+                                  <input type="text" class="form-control" placeholder=" ">
+                                  <label for="" class="form__label">name on the card</label>
+                                </div>
+                              </div>
+                              <!-- <div class="col-12">
+                                <div class="btn btn-primary w-100">Sumbit</div>
+                              </div> -->
+                            </div>
+
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </mat-expansion-panel>
+              </mat-accordion>
+              <div class="row">
+                <div class="col-12">
+                  <div class="btn btn-primary payment" (click)="PaymentAdd()">
+                    Make Payment
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

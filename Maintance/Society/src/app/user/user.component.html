@@ -1,0 +1,41 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<body>
+
+    <div class="container">
+        <h1 style="margin-bottom: -5%;">Welcome Login Page</h1>
+        <div class="screen">
+            <div [formGroup]="loginForm">
+                <div class="login__field">
+                    <mat-icon>login</mat-icon>
+                    <input type="text" class="login__input" name="username" placeholder="Username" id="username" formControlName="username">
+                </div>
+                <div class="login__field">
+                    <mat-icon>lock</mat-icon>
+                    <input type="password" class="login__input" placeholder="password" name="password" id="password" formControlName="password">
+                </div>
+                <button class="button login__submit" type="submit" (click)="onLogin()">
+                    <span class="button__text">Log In Now</span>
+                </button>
+            </div>
+            <!-- <div class="screen__content">
+                <form class="login" #userForm (ngSubmit)="onLogin()" [formgroup]>
+                    <div class="login__field">
+                        <mat-icon>login</mat-icon>
+                        <input type="text" class="login__input" name="email" placeholder="Username">
+                    </div>
+                    <div class="login__field">
+                        <mat-icon>lock</mat-icon>
+                        <input type="password" class="login__input" placeholder="password" name="password">
+                    </div>
+                    <button class="button login__submit" type="submit">
+                        <span class="button__text">Log In Now</span>
+                    </button>
+                </form>
+            </div> -->
+            <div class="Register">
+                <a routerLink="/signup" class="signup">Didn't have an Account? Create Account</a>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,12 @@
+
+<h1 mat-dialog-title>Society Payment Details</h1>
+<div mat-dialog-content>
+    <p>Flate_No: {{ data.username }}</p>
+    <p>Payment Type: {{ data.payment_type }}</p>
+    <p>Rupess: {{ data.rupess }}</p>
+    <p>Type Events: {{ data.type_events }}</p>
+</div>
+<div mat-dialog-actions class="dialog-actions">
+    <button mat-button (click)="printData()">Print</button>
+    <button mat-button [mat-dialog-close]="true">Close</button>
+</div>

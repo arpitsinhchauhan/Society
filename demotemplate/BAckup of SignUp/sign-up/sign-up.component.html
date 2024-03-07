@@ -1,0 +1,27 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Slide Navbar</title>
+</head>
+
+<body>
+    <div class="main">
+        <input type="checkbox" id="chk" aria-hidden="true">
+
+        <div class="signup">
+            <form #userForm="ngForm">
+                <label for="chk" aria-hidden="true">Sign up</label>
+                <input type="text" placeholder="username" ngModel name="username" [ngModel]="Singupobj.Username">
+                <input type="text" placeholder="email" ngModel name="email" [ngModel]="Singupobj.Email">
+                <input placeholder="password" matInput [type]="hide ? 'password' : 'text'" ngModel name="password"
+                    [ngModel]="Singupobj.password">
+                <button class="button" (click)="onSingup(userForm.value)">SingUp</button>
+                <!-- <a (click)="openLogin()">Already Have Account? Click to Login</a> -->
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Society User</h4>
+                        <p class="card-category"> Here is a subtitle for this table</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        Flate_No
+                                    </th>
+                                    <th>
+                                        Rupess
+                                    </th>
+                                    <th>
+                                        Payment_type
+                                    </th>
+                                    <th>
+                                        Event_Payment
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let items of productList" (click)="openDialog(items)">
+                                        <td>{{items.username}}</td>
+                                        <td>{{items.payment_type}}</td>
+                                        <td>{{items.rupess}}</td>
+                                        <td>{{items.type_events}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div style="font-weight: bold;">Total Rupees Sum:  {{ totalRupees }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

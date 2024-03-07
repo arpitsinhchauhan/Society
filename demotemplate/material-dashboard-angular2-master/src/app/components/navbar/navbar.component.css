@@ -1,0 +1,12 @@
+/* Component CSS */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    /* Add more styles for appearance */
+  }
+  
+  .dropdown-menu.show {
+    display: block;
+  }
+  

@@ -1,0 +1,67 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Society User</h4>
+                        <p class="card-category"> Here is a subtitle for this table</p>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Username
+                                    </th>
+                                    <th>
+                                        Email
+                                    </th>
+                                    <th>
+                                        Role
+                                    </th>
+                                    <th>
+                                        Flate_No
+                                    </th>
+                                    <th>
+                                        Edit
+                                    </th>
+                                    <th>
+                                        Delete
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let items of productList |  paginate: { itemsPerPage: 4, currentPage: currentPage}">
+                                    <td style="width: 0px;">{{items.id}}</td>
+                                    <td>{{items.username}}</td>
+                                    <td>{{items.email}}</td>
+                                    <td>{{items.role}}</td>
+                                    <td>{{items.flatenNo}}</td>
+                                    <td>
+                                        <a mat-icon-button>
+                                            <mat-icon id="pencilButton" (click)="update(items)">edit</mat-icon>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <!-- <button (click)="deleteRow(items.id)">Delete</button> -->
+                                            <a mat-icon-button (click)="deleteRow(items.id)">
+                                                <mat-icon>delete</mat-icon>
+                                            </a>
+                                        </div>
+                                    </td>
+                                    </tr>
+                                    <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
